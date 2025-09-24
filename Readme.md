@@ -11,7 +11,7 @@ HTML5 Canvas API kullanılarak geliştirilmiş etkileşimli bir çevrimiçi çiz
 
 ## Kullanım
 1. Projeyi bilgisayarınıza klonlayın veya zip olarak indirin:  
-```bash
+               
 git clone https://github.com/kullaniciadi/online-whiteboard.git
 index.html dosyasını herhangi bir tarayıcıda açın.
 Fırça rengi ve boyutunu seçin, çizim yapmaya başlayın.
