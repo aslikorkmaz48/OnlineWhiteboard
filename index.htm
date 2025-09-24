@@ -5,34 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Çevrimiçi Beyaz Tahta</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        
-        canvas {
-            border: 2px solid #333;
-            background-color: #fff;
-            cursor: crosshair;
-        }
-        
-        .controls {
-            margin-bottom: 10px;
-        }
-        
-        .controls input,
-        .controls button {
-            margin-right: 10px;
-            padding: 5px 10px;
-            font-size: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -47,51 +20,7 @@
 
     <canvas id="whiteboard" width="900" height="500"></canvas>
 
-    <script>
-        const canvas = document.getElementById('whiteboard');
-        const ctx = canvas.getContext('2d');
-        const colorPicker = document.getElementById('colorPicker');
-        const brushSize = document.getElementById('brushSize');
-        const clearBtn = document.getElementById('clearBtn');
-        const saveBtn = document.getElementById('saveBtn');
-
-        let drawing = false;
-
-        canvas.addEventListener('mousedown', () => drawing = true);
-        canvas.addEventListener('mouseup', () => {
-            drawing = false;
-            ctx.beginPath();
-        });
-        canvas.addEventListener('mouseout', () => {
-            drawing = false;
-            ctx.beginPath();
-        });
-
-        canvas.addEventListener('mousemove', (e) => {
-            if (!drawing) return;
-
-            ctx.lineWidth = brushSize.value;
-            ctx.lineCap = 'round';
-            ctx.strokeStyle = colorPicker.value;
-
-            ctx.lineTo(e.offsetX, e.offsetY);
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(e.offsetX, e.offsetY);
-        });
-
-        clearBtn.addEventListener('click', () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-        });
-
-        // Kaydetme fonksiyonu
-        saveBtn.addEventListener('click', () => {
-            const link = document.createElement('a');
-            link.download = 'cizim.png';
-            link.href = canvas.toDataURL('image/png');
-            link.click();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
